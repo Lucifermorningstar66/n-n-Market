@@ -1,0 +1,527 @@
+{
+  "name": "Market",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -688,
+        0
+      ],
+      "id": "f7f0f162-344f-4bea-b66a-9b5c5f82362e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "@redassist123",
+        "text": "=💎Coin: {{ $json.Symbol }} \n🟢Today price: {{ $json.Price }} \n🔴Yesterday price: {{ $json.PriceYesterday }}\n⏰Time: {{ $json.Time }}\n▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        -112
+      ],
+      "id": "ec68dcdf-d8c3-41de-aa2a-1d2d628c2155",
+      "name": "Send a text message",
+      "webhookId": "53ef4e4b-bb09-4bae-ae7a-e002e479951e",
+      "credentials": {
+        "telegramApi": {
+          "id": "ijPdq1ZXkCX0aJ6E",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.diadata.org/v1/assetQuotation/Dogechain/0x0000000000000000000000000000000000000000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -432,
+        0
+      ],
+      "id": "15fa0f94-bfea-4872-a390-fd0a5af19ce6",
+      "name": "DOGE"
+    },
+    {
+      "parameters": {
+        "url": "https://api.diadata.org/v1/assetQuotation/Bitcoin/0x0000000000000000000000000000000000000000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -432,
+        -144
+      ],
+      "id": "96d50eb9-becd-4ae0-8577-ddb3a0ac958f",
+      "name": "BTC"
+    },
+    {
+      "parameters": {
+        "operation": "sendSticker",
+        "chatId": "@redassist123",
+        "file": "https://t.me/redassist123/78",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        160
+      ],
+      "id": "ba31a332-a7b5-47d8-b04c-dde8903cbfa3",
+      "name": "Send a sticker",
+      "webhookId": "a91b98a6-bbcb-4c10-bf2c-c54e11f758fc",
+      "credentials": {
+        "telegramApi": {
+          "id": "ijPdq1ZXkCX0aJ6E",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.diadata.org/v1/assetQuotation/Ethereum/0x0000000000000000000000000000000000000000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -432,
+        160
+      ],
+      "id": "7aef0426-979d-423d-839d-90251e6c9682",
+      "name": "ETHER"
+    },
+    {
+      "parameters": {
+        "url": "https://api.diadata.org/v1/assetQuotation/Solana/0x0000000000000000000000000000000000000000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -432,
+        -288
+      ],
+      "id": "338c7286-c74f-48db-8255-80761d0d1ed3",
+      "name": "SOL"
+    },
+    {
+      "parameters": {
+        "url": "https://api.diadata.org/v1/assetQuotation/XRPL/0x0000000000000000000000000000000000000000",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -432,
+        -432
+      ],
+      "id": "b9c335cb-6663-4784-a3a7-e7a57a403e3c",
+      "name": "XRP"
+    },
+    {
+      "parameters": {
+        "chatId": "@redassist123",
+        "text": "=💎Coin: {{ $json.Symbol }} \n🟢Today price: {{ $json.Price }} \n⏰Time: {{ $json.Time }}\n\n🚨🚨🚨🚨🚨🚨🚨ریزش قیمت🚨🚨🚨🚨🚨🚨🚨\n▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        -416
+      ],
+      "id": "8985455c-63f1-4f59-b35c-2d868df31c25",
+      "name": "Send a text message1",
+      "webhookId": "53ef4e4b-bb09-4bae-ae7a-e002e479951e",
+      "credentials": {
+        "telegramApi": {
+          "id": "ijPdq1ZXkCX0aJ6E",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "556d3959-56bf-4187-a9ab-8ea489e91c27",
+              "leftValue": "={{ $json.Price }}",
+              "rightValue": 100000,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -128
+      ],
+      "id": "bbf68c34-d355-4276-9b15-a6e19561b8fc",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "556d3959-56bf-4187-a9ab-8ea489e91c27",
+              "leftValue": "={{ $json.Price }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -432
+      ],
+      "id": "4201d880-92b7-427b-8ea8-72c7e1b279be",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "556d3959-56bf-4187-a9ab-8ea489e91c27",
+              "leftValue": "={{ $json.Price }}",
+              "rightValue": 150,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -288
+      ],
+      "id": "372b2cdf-3688-4f42-9754-3bc60de85ea4",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "556d3959-56bf-4187-a9ab-8ea489e91c27",
+              "leftValue": "={{ $json.Price }}",
+              "rightValue": 0.2,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        16
+      ],
+      "id": "233a1318-dadb-4265-a924-ba4c9bc8ba5a",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "556d3959-56bf-4187-a9ab-8ea489e91c27",
+              "leftValue": "={{ $json.Price }}",
+              "rightValue": 3000,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        160
+      ],
+      "id": "7a2d1309-bc08-42c9-b0fc-72f62c5c6833",
+      "name": "If4"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "DOGE",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "BTC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ETHER",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SOL",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "XRP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DOGE": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BTC": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        []
+      ]
+    },
+    "ETHER": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SOL": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XRP": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a sticker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "790d6aae-ec4a-4871-afe7-76d98aa49db6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b3104a608b0e936bcb61f704c5b21433fb3aa6f541ca4cff48f8231b811d2014"
+  },
+  "id": "nOokny0omWZI6HZC",
+  "tags": []
+}
