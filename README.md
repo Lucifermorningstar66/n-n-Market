@@ -69,4 +69,6 @@ This project is open-source under the MIT License.
 
 ---
 
-## 
+## 🤝 Contact
+Feel free to connect with me on LinkedIn or check out more of my work on GitHub.
+
